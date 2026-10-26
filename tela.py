@@ -1,4 +1,4 @@
-import customtkinter as ctk  # CORRIGIDO: O nome correto da biblioteca é customtkinter
+import customtkinter as ctk  
 
 
 class TelaVendas(ctk.CTkFrame):
@@ -76,4 +76,18 @@ class TelaVendas(ctk.CTkFrame):
         self.lista_carrinho = ctk.CTkTextbox(self.frame_right, width=300, height=400)
         self.lista_carrinho.pack(pady=10)
 
+    def adicionar_ao_carrinho(self):
+        codigo_produto = self.entry_codigo_produto.get()
+        if codigo_produto:
+            self.lista_carrinho.insert("end", f"{codigo_produto}\n")
+            self.entry_codigo_produto.delete(0, "end")  # Limpa o campo de entrada
+    def remover_do_carrinho(self):
+        codigo_produto = self.entry_codigo_produto.get()
+        if codigo_produto:
+            conteudo = self.lista_carrinho.get("1.0", "end").strip().split("\n")
+            if codigo_produto in conteudo:
+                conteudo.remove(codigo_produto)
+                self.lista_carrinho.delete("1.0", "end")
+                self.lista_carrinho.insert("1.0", "\n".join(conteudo))
+                self.entry_codigo_produto.delete(0, "end")  # Limpa o campo de entrada
     
