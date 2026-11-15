@@ -2,7 +2,7 @@ from database.connection import connect_to_google_sheets
 from services.product import Product
 from datetime import datetime
 
-credentials_json = "credetials/credentials.json" 
+credentials_json = "credentials/credentials.json" 
  # Update with the path to your credentials JSON file
 sheet_name = "Dados Loja" 
 # Update with the name of your Google Sheet
