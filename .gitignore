@@ -13,3 +13,6 @@ credentials/
 
 # Editor
 .vscode/
+
+# docs
+.docs/
